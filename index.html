@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Checkbox Group Styling</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css'>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<validator name="validation1">
+<div class="checkbox-btn-group checkbox-selection-group">
+  <div class="form-check">
+    <input type="checkbox" name="radio" value="button_1" checked="checked" v-model="checked" id="button_1"
+    v-validate:checkbox="{
+      required: { rule: true, message: requiredErrorMsg },
+      minlength: { rule: 1, message: minlengthErrorMsg },
+      maxlength: { rule: 2, message: maxlengthErrorMsg }
+    }"       
+    >
+    <label for="button_1">Button 1</label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" name="radio" value="button_2" v-model="checked" id="button_2"/>
+    <label for="button_2" v-validate:checkbox>Button 2</label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" name="radio" value="button_3" v-model="checked" id="button_3"/>
+    <label for="button_3" v-validate:checkbox>Button 3</label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" name="radio" value="button_4" v-model="checked" id="button_4"/>
+    <label for="button_4" v-validate:checkbox>Button 4</label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" name="radio" value="button_5" v-model="checked" id="button_5"/>
+    <label for="button_5" v-validate:checkbox>Button 5</label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" name="radio" value="button_6" v-model="checked" id="button_6"/>
+    <label for="button_6" v-validate:checkbox>Button 6</label>
+  </div>
+</div>
+
+ <ul class="errors">
+  <li v-for="msg in $validation1.checkbox.errors">
+    <p>{{msg.message}}</p>
+  </li>
+</ul>
+
+<h5 class="show m-t-2">Currently checked value: <span>{{ checked }}</span></h5>
+<!-- partial -->
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue-validator/2.1.3/vue-validator.min.js'></script>
+<script src='https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js'></script>
+<script  src="./script.js"></script>
+
+</body>
+</html>
